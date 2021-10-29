@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="container" id="holders">
+    <section class="container cent down1">
+        <a class="cent" href="{{ url_for('createplayer') }}">Add Player</a>
+        {% for player in characters %}
+            <div class="player-cards">
+                <section class="char-name">
+                    <h3>{{ player.character_name }}</h3>
+                </section>
+                <section class="char-health">
+                    <p>{{ player.total_hp }}</p>
+                    <p>{{ player.current_hp }}</p>
+                </section>
+                <a href="{{ url_for('character', character_id=player.id) }}">View</a>
+            </div>
+        {% endfor %}
+    </section>
+    <section class="container cent down1">
+        <a class="cent" href="{{ url_for('createmonster') }}">Add Monster</a>
+        {% for monster in monsters %}
+            <div class="player-cards">
+                <section class="char-name">
+                    <h3>{{ monster.monster_name }}</h3>
+                </section>
+                <section class="char-health">
+                    <p>{{ monster.total_hp }}</p>
+                    <p>{{ monster.current_hp }}</p>
+                </section>
+                <a href="{{ url_for('monster', monster_id=monster.id) }}">View</a>
+            </div>
+        {% endfor %}
+    </section>
+</section>
+{% endblock content %}

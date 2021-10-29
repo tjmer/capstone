@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="shop-list">
+    <div class="create">
+        <a href="{{ url_for('createshop') }}">Create Shop</a>
+    </div>
+    {% for shop in shops %}
+            <div class="player-cards">
+                <section class="char-name">
+                    <h3>{{ shop.shop_name }}</h3>
+                </section>
+                <section class="owner">
+                    <p>{{ shop.shop_owner }}</p>
+                </section>
+                <a href="{{ url_for('shop', shop_id=shop.id) }}">View</a>
+            </div>
+        {% endfor %}
+</section>
+{% endblock content %}

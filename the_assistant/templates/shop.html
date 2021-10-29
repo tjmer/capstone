@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+    <div>
+        <h1>{{ shop.shop_name }}</h1>
+        <h2>{{ shop.shop_owner }}</h2>
+    </div>
+    <div>
+        <p>{{ shop.inventory }}</p>
+    </div>
+</section>
+<div>
+<a href="{{ url_for('update_shop', shop_id=shop.id) }}">Update</a>
+{% if shop.author == current_user %}
+        <button type="button" data-toggle="modal" data-target="#deleteModal">Delete</button>
+    </div>
+{% endif %}
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Delete Shop</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <form action="{{ url_for('delete_shop', shop_id=shop.id) }}" method="POST">
+              <input type="submit" value="Delete">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+}
+
+.down{
+    margin-top: 3rem;
+}
+
+.down1{
+    margin-top: 1rem;
+}
+
+/* Header css */
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6B0504;
+}
+
+#nav-section{
+    margin-right: 3rem;
+}
+
+#title-header{
+    margin-left: 3rem;
+}
+
+#title-ln1 {
+    color: beige;
+    font-family: 'Rampart One', cursive;
+}
+
+#title-ln2{
+    color: beige;
+    font-family: 'Rampart One', cursive;
+    margin-left: 6rem;
+}
+
+.nav-btn {
+    background-color: #2B6782;
+    color: beige;
+    border-top-left-radius: .2rem;
+    border-top-right-radius: .2rem;
+    margin-left: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 2.25rem;
+}
+
+.header-border {
+    background-color: #2B6782;
+    height: .8rem;
+}
+
+
+/* battle page */
+
+#holders{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

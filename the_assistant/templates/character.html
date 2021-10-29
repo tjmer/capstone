@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="player-cards">
+    <section class="char-name">
+        <h3>{{ character.character_name }}</h3>
+    </section>
+    <section class="char-health">
+        <p>{{ character.total_hp }}</p>
+        <p>{{ character.current_hp }}</p>
+        <p>{{ character.armor_class }}</p>
+    </section>
+    <section class="attributes-panel">
+        <section class="attributes">
+            <p>{{ character.strength }}</p>
+            <p>{{ character.dexterity }}</p>
+            <p>{{ character.constitution }}</p>
+        </section>
+        <section class="attributes">
+            <p>{{ character.intelligence }}</p>
+            <p>{{ character.wisdom }}</p>
+            <p>{{ character.charisma }}</p>
+        </section>
+        <section class="info">
+            <p>{{ character.char_bio }}</p>
+        </section>
+    </section>
+    {% if character.author == current_user %}
+        <div>
+            <a href="{{ url_for('update_character', character_id=character.id) }}">Update</a>
+            <button type="button" data-toggle="modal" data-target="#deleteModal">Delete</button>
+        </div>
+    {% endif %}
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Delete Character</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <form action="{{ url_for('delete_character', character_id=character.id) }}" method="POST">
+              <input type="submit" value="Delete">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
