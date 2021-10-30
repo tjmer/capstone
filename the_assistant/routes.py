@@ -4,6 +4,8 @@ from the_assistant import app, db, bcrypt
 from the_assistant.models import User, Character, Monster, Shop
 from the_assistant.forms import RegistrationForm, LoginForm, UpdateAccountForm, CreateCharacter, CreateMonster, CreateShop
 from flask_login import login_user, current_user, logout_user, login_required
+import requests
+import json
 import secrets
 import os
 
@@ -197,10 +199,105 @@ def delete_monster(monster_id):
     flash('Monster has been deleted!', 'success')
     return redirect(url_for('battle'))
 
-@app.route('/reference')
+@app.route('/reference', methods=['GET', 'POST'])
 def reference():
+    melee = ["greatsword", "longsword", "shortsword", "scimitar", "rapier", "dagger", "sickle",
+            "handaxe","battleaxe", "greataxe", "light-hammer", "warhammer", "club", "greatclub",
+            "flail", "glaive", "halberd", "spear", "lance", "pike", "war-pick", "trident", "javelin", "maul",
+            "morningstar", "mace", "quarterstaff"]
+    
+    ranged = ["longbow", "shortbow", "crossbow-hand", "crossbow-light", "crossbow-heavy", "sling", "blowgun", "dart"]
+
+    monsters = ["assassin", 'bandit', 'bandit-captain', 'black-bear', 'boar', 'bugbear', 'centaur', 'commoner', 'cult-fanatic',
+                'cultist', 'dire-wolf', 'dryad', 'ghast', 'ghost', 'giant-rat', 'gnoll', 'goblin', 'gorgon', 'griffon', 
+                'guard', 'hawk', 'hobgoblin', 'hydra', 'knight', 'kobold', 'lich', 'lion', 'lizard', 'lizardfolk', 'mage',
+                'medusa', 'mimic', 'minotaur', 'noble', 'ogre', 'orc', 'priest', 'rat', 'raven', 'riding-horse', 'roc',
+                ]
     shops = Shop.query.all()
-    return render_template('references.html', title='References', shops=shops)
+    wname = ''
+    wcat = ''
+    wdice = ''
+    wdtype = ''
+    wcost = ''
+
+    rname = ''
+    rcat = ''
+    rdice = ''
+    rdtype = ''
+    rcost = ''
+
+    mname = ''
+    msize = ''
+    mtype = ''
+    mspeed = ''
+    mac = ''
+    mhp = ''
+    mdice = ''
+    mstr = ''
+    mdex = ''
+    mconst = ''
+    mint = ''
+    mwis = ''
+    mchar = ''
+    mchallenge = ''
+
+    if request.method == 'POST':
+        meleew = request.form.get('melee', None)
+        rangew = request.form.get('ranged', None)
+        monsterw = request.form.get('monster', None)
+
+        if meleew != None:
+            req = requests.get(f'https://www.dnd5eapi.co/api/equipment/{meleew}')
+            data = json.loads(req.content)
+            wname = data['name']
+            wcat = data['weapon_category']
+            wdice = data['damage']['damage_dice']
+            wdtype = data['damage']['damage_type']['name']
+            wcost = data['cost']['quantity']
+            return render_template('references.html', title='References', shops=shops, range=ranged, melee=melee, monsters=monsters, wname=wname, wcat=wcat, wdice=wdice, wdtype= wdtype, wcost=wcost,
+                                   rname=rname, rcat=rcat, rdice=rdice, rdtype=rdtype, rcost=rcost, mname=mname,
+                                   msize=msize, mtype=mtype, mspeed=mspeed, mac=mac, mhp=mhp, mdice=mdice, mstr=mstr, mdex=mdex, mconst=mconst, mint=mint,
+                                   mwis=mwis, mchar=mchar, mchallenge=mchallenge)
+
+        elif rangew != None:
+            req = requests.get(f'https://www.dnd5eapi.co/api/equipment/{rangew}')
+            data = json.loads(req.content)
+            rname = data['name']
+            rcat = data['weapon_category']
+            rdice = data['damage']['damage_dice']
+            rdtype = data['damage']['damage_type']['name']
+            rcost = data['cost']['quantity']
+            return render_template('references.html', title='References', shops=shops, range=ranged, melee=melee, monsters=monsters, wname=wname, wcat=wcat, wdice=wdice, wdtype= wdtype, wcost=wcost,
+                                   rname=rname, rcat=rcat, rdice=rdice, rdtype=rdtype, rcost=rcost, mname=mname,
+                                   msize=msize, mtype=mtype, mspeed=mspeed, mac=mac, mhp=mhp, mdice=mdice, mstr=mstr, mdex=mdex, mconst=mconst, mint=mint,
+                                   mwis=mwis, mchar=mchar, mchallenge=mchallenge)
+
+        elif monsterw != None:
+            req = requests.get(f'https://www.dnd5eapi.co/api/monsters/{monsterw}')
+            data = json.loads(req.content)
+            mname = data['name']
+            msize = data['size']
+            mtype = data['type']
+            mspeed = data['speed']['walk']
+            mac = data['armor_class']
+            mhp = data['hit_points']
+            mdice = data['hit_dice']
+            mstr = data['strength']
+            mdex = data['dexterity']
+            mconst = data['constitution']
+            mint = data['intelligence']
+            mwis = data['wisdom']
+            mchar = data['charisma']
+            mchallenge = data['challenge_rating']
+            return render_template('references.html', title='References', shops=shops, range=ranged, melee=melee, monsters=monsters, wname=wname, wcat=wcat, wdice=wdice, wdtype= wdtype, wcost=wcost,
+                                   rname=rname, rcat=rcat, rdice=rdice, rdtype=rdtype, rcost=rcost, mname=mname,
+                                   msize=msize, mtype=mtype, mspeed=mspeed, mac=mac, mhp=mhp, mdice=mdice, mstr=mstr, mdex=mdex, mconst=mconst, mint=mint,
+                                   mwis=mwis, mchar=mchar, mchallenge=mchallenge)
+
+    return render_template('references.html', title='References', shops=shops, range=ranged, melee=melee, monsters=monsters, wname=wname, wcat=wcat, wdice=wdice, wdtype= wdtype, wcost=wcost,
+                           rname=rname, rcat=rcat, rdice=rdice, rdtype=rdtype, rcost=rcost, mname=mname,
+                           msize=msize, mtype=mtype, mspeed=mspeed, mac=mac, mhp=mhp, mdice=mdice, mstr=mstr, mdex=mdex, mconst=mconst, mint=mint,
+                           mwis=mwis, mchar=mchar, mchallenge=mchallenge)
 
 @app.route('/createshop', methods=['GET', 'POST'])
 def createshop():
