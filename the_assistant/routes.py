@@ -346,3 +346,7 @@ def delete_shop(shop_id):
     db.session.commit()
     flash('Shop has been deleted!', 'success')
     return redirect(url_for('reference'))
+
+@app.route('/spells')
+def spells():
+    return render_template('spells.html', title='Spells')

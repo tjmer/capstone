@@ -26,6 +26,7 @@
         </section>
         <nav id="nav-section">
             {% if current_user.is_authenticated %}
+            <a class="nav-btn" href="{{ url_for('spells') }}">Spells</a>
             <a class="nav-btn" href="{{ url_for('reference') }}">Reference</a>
             <a class="nav-btn" href="{{ url_for('battle') }}">Battle</a>
             <a class="nav-btn" href="{{ url_for('account') }}">Account</a>
