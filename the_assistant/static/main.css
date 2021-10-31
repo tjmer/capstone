@@ -14,6 +14,10 @@
     margin-top: 1rem;
 }
 
+.marg-b-1{
+    margin-bottom: 1rem;
+}
+
 /* Header css */
 
 #header {
@@ -99,4 +103,49 @@
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
+}
+
+/* battle page */
+
+.player-cards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    border: 2px solid black;
+    border-radius: 2rem;
+    background-color: #858786;
+    width: 20rem;
+    box-shadow: 0px 0px 5px black;
+}
+
+.add-button {
+    background-color: #2B6782;
+    color: whitesmoke;
+    width: 8rem;
+    height: 2rem;
+    box-shadow: 3px 0px 10px black;
+    border-radius: .5rem;
+}
+
+.add-button:hover{
+    background-color: #6B0504;
+    color: steelblue;
+}
+
+.char-health-font{
+    color: beige;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 0px 2px 10px black;
+}
+
+.view-button{
+    width: 4rem;
+    color: beige;
+    background-color: #2B6782;
+}
+
+.view-button:hover{
+    cursor: pointer;
+    background-color: #6B0504;
 }
