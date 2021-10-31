@@ -26,6 +26,15 @@
     margin-left: 1rem;
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.height-8{
+    height: 8rem;
+}
+
 /* Header css */
 
 #header {
@@ -244,4 +253,24 @@
     margin-bottom: 6rem;
     border-radius: 1rem;
     padding: 3rem;
+}
+
+/* create shop */
+
+.background-character-2 {
+    background-color: #BFB59E;
+    padding: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 6rem;
+    border-radius: 1rem;
+    padding: 3rem;
+    width: 30rem;
+}
+
+.back {
+    display: flex;
+    justify-content: center;
+    background-image: url(/static/site_pics/Shop-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
