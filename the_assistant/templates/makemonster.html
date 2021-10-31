@@ -1,70 +1,74 @@
 {% extends 'base.html' %}
 {% block content %}
-<div>
-    <form method="POST" action="">
-        {{form.hidden_tag()}}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">{{ legend }}</legend>
-            <div class="form-group">
-                {{ form.monster_name.label(class="from-control-label") }}
-                {% if form.monster_name.errors %}
-                    {{ form.monster_name(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
-                        {% for error in form.monster_name.errors %}
+<section class="page-back-monster">
+    <section class="background-makemonster-1">
+        <div>
+            <form method="POST" action="">
+                {{form.hidden_tag()}}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">{{ legend }}</legend>
+                    <div class="form-group">
+                        {{ form.monster_name.label(class="from-control-label") }}
+                        {% if form.monster_name.errors %}
+                        {{ form.monster_name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.monster_name.errors %}
                             <span>{{ error }}</span>
-                        {% endfor %}
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.monster_name(class="form-control form-control-lg") }}
+                        {% endif %}
                     </div>
-                {% else %}
-                    {{ form.monster_name(class="form-control form-control-lg") }}
-                {% endif %}
-            </div>
-            <section class="health">
+                    <section class="health">
+                        <div class="form-group">
+                            {{ form.total_hp.label(class="from-control-label") }}
+                            {% if form.total_hp.errors %}
+                            {{ form.total_hp(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.total_hp.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.total_hp(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.current_hp.label(class="from-control-label") }}
+                            {% if form.current_hp.errors %}
+                            {{ form.current_hp(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.current_hp.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.current_hp(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+                    </section>
+                    <section class="bio">
+                        <div class="form-group">
+                            {{ form.monster_desc.label(class="from-control-label") }}
+                            {% if form.monster_desc.errors %}
+                            {{ form.monster_desc(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.monster_desc.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.monster_desc(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+                    </section>
+                </fieldset>
                 <div class="form-group">
-                    {{ form.total_hp.label(class="from-control-label") }}
-                    {% if form.total_hp.errors %}
-                    {{ form.total_hp(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
-                        {% for error in form.total_hp.errors %}
-                        <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                    {% else %}
-                    {{ form.total_hp(class="form-control form-control-lg") }}
-                    {% endif %}
+                    {{ form.submit(class="view-button") }}
                 </div>
-                <div class="form-group">
-                    {{ form.current_hp.label(class="from-control-label") }}
-                    {% if form.current_hp.errors %}
-                    {{ form.current_hp(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
-                        {% for error in form.current_hp.errors %}
-                        <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                    {% else %}
-                    {{ form.current_hp(class="form-control form-control-lg") }}
-                    {% endif %}
-                </div>
-            </section>
-            <section class="bio">
-                <div class="form-group">
-                    {{ form.monster_desc.label(class="from-control-label") }}
-                    {% if form.monster_desc.errors %}
-                    {{ form.monster_desc(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
-                        {% for error in form.monster_desc.errors %}
-                        <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                    {% else %}
-                    {{ form.monster_desc(class="form-control form-control-lg") }}
-                    {% endif %}
-                </div>
-            </section>
-        </fieldset>
-        <div class="form-group">
-            {{ form.submit(class="btn btn-outline-info") }}
+            </form>
         </div>
-    </form>
-</div>
+    </section>
+</section>
 {% endblock content %}
