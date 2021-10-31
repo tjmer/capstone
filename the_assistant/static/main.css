@@ -2,6 +2,10 @@
     margin: 0;
 }
 
+.background {
+    background-color: #BFB59E;
+}
+
 .down{
     margin-top: 3rem;
 }
@@ -68,4 +72,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/* account page */
+
+.size {
+    height: 13rem;
+    width: 16rem;
+    margin-right: 3rem;
+}
+
+#account-info-box{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.pic-and-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.account-name-email{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
 }
