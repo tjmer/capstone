@@ -35,6 +35,13 @@
     height: 8rem;
 }
 
+.page-back {
+    display: flex;
+    justify-content: center;
+    background-color: #858786;
+    background-size: cover;
+}
+
 /* Header css */
 
 #header {
@@ -157,7 +164,7 @@
 }
 
 .view-button{
-    width: 4rem;
+    width: 5rem;
     color: beige;
     background-color: #2B6782;
 }
@@ -274,3 +281,17 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/* login */
+
+.background-login-1 {
+    background-color: #BFB59E;
+    padding: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 4rem;
+    border-radius: 1rem;
+    width: 50rem;
+}
+
+/* register */
+
