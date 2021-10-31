@@ -1,39 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="player-cards">
-    <section class="char-name">
-        <h3>{{ character.character_name }}</h3>
+<section class="character-sheet">
+  <div class="background-character">
+    <section class="char-name-section">
+      <h3 class="char-name">{{ character.character_name }}</h3>
     </section>
     <section class="char-health">
-        <p>{{ character.total_hp }}</p>
-        <p>{{ character.current_hp }}</p>
-        <p>{{ character.armor_class }}</p>
+      <p class="border-sides">Total HP: {{ character.total_hp }}</p>
+      <p class="border-sides">Current HP: {{ character.current_hp }}</p>
+      <p class="border-sides">Armor Class: {{ character.armor_class }}</p>
     </section>
     <section class="attributes-panel">
-        <section class="attributes">
-            <p>{{ character.strength }}</p>
-            <p>{{ character.dexterity }}</p>
-            <p>{{ character.constitution }}</p>
-        </section>
-        <section class="attributes">
-            <p>{{ character.intelligence }}</p>
-            <p>{{ character.wisdom }}</p>
-            <p>{{ character.charisma }}</p>
-        </section>
-        <section class="info">
-            <p>{{ character.char_bio }}</p>
-        </section>
+      <section class="attributes">
+        <p class="border-sides">Strength: {{ character.strength }}</p>
+        <p class="border-sides">Dexterity: {{ character.dexterity }}</p>
+        <p class="border-sides">Constitution: {{ character.constitution }}</p>
+      </section>
+      <section class="attributes">
+        <p class="border-sides">Intelligence: {{ character.intelligence }}</p>
+        <p class="border-sides">Wisdom: {{ character.wisdom }}</p>
+        <p class="border-sides">Charisma: {{ character.charisma }}</p>
+      </section>
     </section>
+      <section class="info">
+        <p class="descript">Description: {{ character.char_bio }}</p>
+      </section>
     {% if character.author == current_user %}
-        <div>
-            <a href="{{ url_for('update_character', character_id=character.id) }}">Update</a>
-            <button type="button" data-toggle="modal" data-target="#deleteModal">Delete</button>
-        </div>
-    {% endif %}
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="character-buttons">
+      <a href="{{ url_for('update_character', character_id=character.id) }}"><button class="view-button view-button marg-l-1">Update</button></a>
+      <button class="view-button marg-l-1" type="button" data-toggle="modal" data-target="#deleteModal">Delete</button>
+      {% endif %}
+      <a href="{{ url_for('battle') }}"><button class="view-button marg-l-1">Return</button></a>
+    </div>
+  </div>
+</section>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
