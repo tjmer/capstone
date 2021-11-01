@@ -153,7 +153,7 @@ def createmonster():
     form = CreateMonster()
     if form.validate_on_submit():
         monster = Monster(monster_name=form.monster_name.data, total_hp=form.total_hp.data, current_hp=form.current_hp.data,
-                          monster_description=form.monster_desc.data, author=current_user)
+                          armor_class=form.armor_class.data, monster_description=form.monster_desc.data, author=current_user)
         db.session.add(monster)
         db.session.commit()
         flash("Created monster!" 'success')
@@ -177,6 +177,7 @@ def update_monster(monster_id):
         monster.monster_name = form.monster_name.data
         monster.total_hp = form.total_hp.data
         monster.current_hp = form.current_hp.data
+        monster.armor_class = form.armor_class.data
         monster.monster_description = form.monster_desc.data
         db.session.commit()
         flash('Updated Monster!', 'success')
@@ -185,6 +186,7 @@ def update_monster(monster_id):
         form.monster_name.data = monster.monster_name
         form.total_hp.data = monster.total_hp
         form.current_hp.data = monster.current_hp
+        form.armor_class.data = monster.armor_class
         form.monster_desc.data = monster.monster_description
     return render_template('makemonster.html', title='Update Monster', form=form, legend= 'Update Monster')
 

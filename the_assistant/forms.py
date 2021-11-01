@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import validators
 from wtforms.fields.core import IntegerField
 from wtforms.fields.simple import TextAreaField
 from wtforms.validators import DataRequired, Email, Length, EqualTo, ValidationError
@@ -67,6 +68,7 @@ class CreateMonster(FlaskForm):
     monster_name = StringField('Name', validators=[DataRequired()])
     total_hp = IntegerField('Health', validators=[DataRequired()])
     current_hp = IntegerField('Current Health', validators=[DataRequired()])
+    armor_class = IntegerField('Armor Class', validators=[DataRequired()])
     monster_desc = TextAreaField('Description', validators=[DataRequired()])
     submit = SubmitField('Submit')
 

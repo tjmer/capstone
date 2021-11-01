@@ -42,6 +42,7 @@ class Monster(db.Model):
     monster_name = db.Column(db.String(50), nullable=False)
     total_hp = db.Column(db.Integer, nullable=False)
     current_hp = db.Column(db.Integer, nullable=False)
+    armor_class = db.Column(db.Integer, nullable=False)
     monster_description = db.Column(db.Text)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
