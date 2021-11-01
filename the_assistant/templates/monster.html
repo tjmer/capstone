@@ -3,8 +3,8 @@
 {% block content %}
 <section class="character-sheet-monster">
   <div class="background-monster">
-    <section class="char-name">
-      <h3>{{ monster.monster_name }}</h3>
+    <section class="char-name-section">
+      <h3 class="char-name">{{ monster.monster_name }}</h3>
     </section>
     <section class="char-health">
       <p class="border-sides">Total HP: {{ monster.total_hp }}</p>
@@ -12,10 +12,10 @@
       <p class="border-sides">Armor class: {{ monster.armor_class }}</p>
     </section>
     <section class="info">
-      <p class="border-sides">Description: {{ monster.monster_description }}</p>
+      <p class="descript">Description: {{ monster.monster_description }}</p>
     </section>
+    <div class="character-buttons">
     {% if monster.author == current_user %}
-    <div>
       <a href="{{ url_for('update_monster', monster_id=monster.id) }}"><button class="view-button marg-l-1">Update</button></a>
       <button type="button" data-toggle="modal" data-target="#deleteModal" class="view-button marg-l-1">Delete</button>
       {% endif %}

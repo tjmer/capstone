@@ -271,7 +271,7 @@
 .character-sheet-monster{
     display: flex;
     justify-content: center;
-    background-image: url(#);
+    background-image: url(/static/site_pics/Gila-monster.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
@@ -279,8 +279,8 @@
 
 .background-monster{
     background-color: #BFB59E;
-    height: 20rem;
-    margin-top: 8rem;
+    height: 25rem;
+    margin-top: 4rem;
     padding: 3rem;
     border-radius: 1rem;
 }
