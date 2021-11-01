@@ -309,6 +309,62 @@
     background-size: cover;
 }
 
+/* shop */
+
+.character-sheet-shop{
+    display: flex;
+    justify-content: center;
+    background-image: url(/static/site_pics/Fantasy-background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.background-shop{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #BFB59E;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    height: 25rem;
+}
+
+.shop-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #BFB59E;
+}
+
+.shop-name-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #858786;
+    color: #6B0504;
+    font-family: sans-serif;
+    height: 3rem;
+    width: 25rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 3px 3px 8px black;
+    text-shadow: 0px 0px 8px beige;
+}
+
+.border-sides-shop {
+    display: flex;
+    justify-content: center;
+    color: beige;
+    width: 25rem;
+    background-color: #858786;
+    margin-bottom: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px black;
+}
+
 /* login/register */
 
 .background-login-1 {

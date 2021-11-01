@@ -1,20 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-<section>
-    <div>
-        <h1>{{ shop.shop_name }}</h1>
-        <h2>{{ shop.shop_owner }}</h2>
+<section class="character-sheet-shop">
+  <section class="background-shop">
+    <section>
+      <div class="shop-center">
+        <h1 class="shop-name-section">{{ shop.shop_name }}</h1>
+        <h2 class="border-sides-shop">{{ shop.shop_owner }}</h2>
+      </div>
+      <div>
+        <p class="descript">{{ shop.inventory }}</p>
+      </div>
+    </section>
+    <div class="character-buttons">
+      <a href="{{ url_for('update_shop', shop_id=shop.id) }}"><button class="view-button marg-l-1">Update</button></a>
+      {% if shop.author == current_user %}
+      <button class="view-button marg-l-1" type="button" data-toggle="modal" data-target="#deleteModal">Delete</button>
+      {% endif %}
+      <a href="{{ url_for('reference') }}"><button class="view-button marg-l-1">Return</button></a>
     </div>
-    <div>
-        <p>{{ shop.inventory }}</p>
-    </div>
+  </section>
 </section>
-<div>
-<a href="{{ url_for('update_shop', shop_id=shop.id) }}">Update</a>
-{% if shop.author == current_user %}
-        <button type="button" data-toggle="modal" data-target="#deleteModal">Delete</button>
-    </div>
-{% endif %}
 
 <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
