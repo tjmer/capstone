@@ -517,3 +517,71 @@
     border-radius: 1rem;
     box-shadow: 5px 5px 10px black;
 }
+
+/* spells page */
+
+.whole-page-spell{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-image: url(/static/site_pics/spellbook.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#spell-name{
+    display: flex;
+    justify-content: center;
+}
+
+#spell-item-section{
+    display: flex;
+    justify-content: space-evenly;
+    border-top: solid black;
+    padding-top: 1rem;
+}
+
+#spell-damage{
+    display: flex;
+    justify-content: space-evenly;
+    border-top: solid black;
+    padding-top: 1rem;
+}
+
+#spell-box{
+    border-top: solid black;
+    padding-top: 1rem;
+}
+
+#spell-descript{
+    color: beige;
+    background-color: #858786;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px black;
+}
+
+.spell-sect{
+    color: beige;
+    background-color: #858786;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px black;
+}
+
+.spell-sect-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: beige;
+    background-color: #858786;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px black;
+}

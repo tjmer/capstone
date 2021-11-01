@@ -1,3 +1,61 @@
 {% extends 'base.html' %}
 {% block content %}
+<section class="whole-page-spell">
+    <section class="border-sides-reference">
+        <form id="form1" action="{{ url_for('spells') }}" method="POST" enctype="multipart/form-data">
+            <label for='spell'>Spells:</label>
+            <select name="spell">
+                {% for spell in spells %}
+                <option value="{{ spell }}">{{ spell }}</option>
+                {% endfor %}
+            </select>
+            <input class="view-button" type="submit" value="Submit">
+        </form>
+    </section>
+    <section class="spell-info">
+        <section id="spell-name">
+            <h2 class="spell-sect-name">{{ sname }}</h2>
+        </section>
+        <section id="spell-item-section">
+            <section class="spell-items-info">
+                <p class="spell-sect">Range: {{ srange }}</p>
+                <p class="spell-sect">Comonents: {{ scomponents }}</p>
+                <p class="spell-sect">Material: {{ smaterial }}</p>
+                <p class="spell-sect">Is it a ritual spell: {{ sritual }}</p>
+            </section>
+            <section class="spell-items-info">
+                <p class="spell-sect">Duration: {{ sduration }}</p>
+                <p class="spell-sect">Concentration: {{ sconcentration }}</p>
+                <p class="spell-sect">Casting time: {{ scasting_time }}</p>
+                <p class="spell-sect">Spell level: {{ slevel }}</p>
+                <p class="spell-sect">Spell School: {{ sschool }}</p>
+            </section>
+        </section>
+        <section id="spell-damage">
+            <section id="spell-damage-type">
+                <p class="spell-sect">Attack type: {{ sattack_type }}</p>
+                <p class="spell-sect">Damage type: {{ sdamage_type }}</p>
+            </section>
+            <section class="spell-damage-dice">
+                <p class="spell-sect">Spell damage level 1: {{ sdal_1 }}</p>
+                <p class="spell-sect">Spell damage level 2: {{ sdal_2 }}</p>
+                <p class="spell-sect">Spell damage level 3: {{ sdal_3 }}</p>
+                <p class="spell-sect">Spell damage level 4: {{ sdal_4 }}</p>
+            </section>
+            <section class="spell-damage-type">
+                <p class="spell-sect">Spell damage level 5: {{ sdal_5 }}</p>
+                <p class="spell-sect">Spell damage level 6: {{ sdal_6 }}</p>
+                <p class="spell-sect">Spell damage level 7: {{ sdal_7 }}</p>
+                <p class="spell-sect">Spell damage level 8: {{ sdal_8 }}</p>
+                <p class="spell-sect">Spell damage level 9: {{ sdal_9 }}</p>
+            </section>
+        </section>
+        <section id="spell-box">
+            <section id="spell-descript">
+                <p>Description: {{ sdesc }}</p>
+                <p>At higher level: {{ shigher_level }}</p>
+            </section>
+        </section>
+    </section>
+</section>
 {% endblock content %}

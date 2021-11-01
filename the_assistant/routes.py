@@ -349,6 +349,116 @@ def delete_shop(shop_id):
     flash('Shop has been deleted!', 'success')
     return redirect(url_for('reference'))
 
-@app.route('/spells')
+@app.route('/spells', methods=['GET', 'POST'])
 def spells():
-    return render_template('spells.html', title='Spells')
+    spells =['acid-arrow', 'acid-splash', 'aid', 'alarm', 'alter-self', 'animal-friendship', 'animal-messenger', 'animal-shapes', 'animate-dead',
+             'animate-objects', 'antilife-shell', 'antimagic-field', 'antipathy-sympathy', 'arcane-sword', 'bane','barkskin', 'blade-barrier',
+             'bless', 'blight', 'blink', 'blur', 'burning-hands', 'call-lightning', 'calm-emotions', 'chain-lightning', 'charm-person', 'chill-touch',
+             'circle-of-death', 'clone', 'color-spray', 'command', 'cone-of-cold', 'conjure-animals', 'counterspell', 'cure-wounds']
+
+    sname = ''
+    sdesc = ''
+    shigher_level = ''
+    srange = ''
+    scomponents = ''
+    smaterial = ''
+    sritual = ''
+    sduration = ''
+    sconcentration = ''
+    scasting_time = ''
+    slevel = ''
+    sattack_type = ''
+    sdamage_type = ''
+    sdal_1 = ''
+    sdal_2 = ''
+    sdal_3 = ''
+    sdal_4 = ''
+    sdal_5 = ''
+    sdal_6 = ''
+    sdal_7 = ''
+    sdal_8 = ''
+    sdal_9 = ''
+    sschool = ''
+
+    if request.method == 'POST':
+        spellw = request.form.get('spell', None)
+
+        if spellw != None:
+            req = requests.get(f'https://www.dnd5eapi.co/api/spells/{spellw}')
+            data = json.loads(req.content)
+
+            sname = data['name']
+            sdesc = data['desc']
+            try:
+                shigher_level = data['higher_level']
+            except:
+                shigher_level = ''
+            srange = data['range']
+            scomponents = data['components']
+            try:
+                smaterial = data['material']
+            except:
+                smaterial = ''
+            sritual = data['ritual']
+            sduration = data['duration']
+            sconcentration = data['concentration']
+            scasting_time = data['casting_time']
+            slevel = data['level']
+            try:
+                sattack_type = data['attack_type']
+            except:
+                sattack_type = ''
+            try:
+                sdamage_type = data['damage']['damage_type']['name']
+            except:
+                sdamage_type = ''
+            try:
+                sdal_1 = data['damage']['damage_at_slot_level']['1']
+            except:
+                sdal_1 = ''
+            try:
+                sdal_2 = data['damage']['damage_at_slot_level']['2']
+            except:
+                sdal_2 = ''
+            try:
+                sdal_3 = data['damage']['damage_at_slot_level']['3']
+            except:
+                sdal_3 = ''
+            try:
+                sdal_4 = data['damage']['damage_at_slot_level']['4']
+            except:
+                sdal_4 = ''
+            try:
+                sdal_5 = data['damage']['damage_at_slot_level']['5']
+            except:
+                sdal_5 = ''
+            try:
+                sdal_6 = data['damage']['damage_at_slot_level']['6']
+            except:
+                sdal_6 = ''
+            try:
+                sdal_7 = data['damage']['damage_at_slot_level']['7']
+            except:
+                sdal_7 = ''
+            try:
+                sdal_8 = data['damage']['damage_at_slot_level']['8']
+            except:
+                sdal_8 = ''
+            try:
+                sdal_9 = data['damage']['damage_at_slot_level']['9']
+            except:
+                sdal_9 = ''
+            sschool = data['school']['name']
+            return render_template('spells.html', title='Spells', spells=spells,
+                           sname=sname, sdesc=sdesc, shigher_level=shigher_level, srange=srange, scomponents=scomponents,
+                           smaterial=smaterial, sritual=sritual, sduration=sduration, sconcentration=sconcentration,
+                           scasting_time=scasting_time, slevel=slevel, sattack_type=sattack_type, sdamage_type=sdamage_type,
+                           sdal_1=sdal_1, sdal_2=sdal_2, sdal_3=sdal_3, sdal_4=sdal_4, sdal_5=sdal_5, sdal_6=sdal_6,
+                           sdal_7=sdal_7, sdal_8=sdal_8, sdal_9=sdal_9, sschool=sschool)
+
+    return render_template('spells.html', title='Spells', spells=spells,
+                           sname=sname, sdesc=sdesc, shigher_level=shigher_level, srange=srange, scomponents=scomponents,
+                           smaterial=smaterial, sritual=sritual, sduration=sduration, sconcentration=sconcentration,
+                           scasting_time=scasting_time, slevel=slevel, sattack_type=sattack_type, sdamage_type=sdamage_type,
+                           sdal_1=sdal_1, sdal_2=sdal_2, sdal_3=sdal_3, sdal_4=sdal_4, sdal_5=sdal_5, sdal_6=sdal_6,
+                           sdal_7=sdal_7, sdal_8=sdal_8, sdal_9=sdal_9, sschool=sschool)
