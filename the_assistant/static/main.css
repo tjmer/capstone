@@ -493,6 +493,13 @@
     display: flex;
 }
 
+.other-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .monster-name-section{
     display: flex;
     justify-content: center;
