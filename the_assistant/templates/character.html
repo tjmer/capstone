@@ -25,8 +25,8 @@
       <section class="info">
         <p class="descript">Description: {{ character.char_bio }}</p>
       </section>
+      <div class="character-buttons">
     {% if character.author == current_user %}
-    <div class="character-buttons">
       <a href="{{ url_for('update_character', character_id=character.id) }}"><button class="view-button view-button marg-l-1">Update</button></a>
       <button class="view-button marg-l-1" type="button" data-toggle="modal" data-target="#deleteModal">Delete</button>
       {% endif %}
