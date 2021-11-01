@@ -1,3 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
+<section class="whole-page-welcome">
+    {% if current_user.is_authenticated %}
+    <section class="descript-welcome">
+        <h1 class="welcome-title">Welcome</h1>
+        <P class="site-description">Now that you have logged in you can use the different references to help with your games.</P>
+        <p class="site-description">To start select what tab you want to get started.</p>
+    </section>
+    {% else %}
+    <section class="descript-welcome">
+        <h1 class="welcome-title">Welcome</h1>
+        <p class="site-description">This website is designed with the Dungeon Master in mind.</p>
+        <p class="site-description">This site has a few features that can help with your game sessions.</p>
+        <p class="site-description">To start either login or register then login.</p>
+    </section>
+    {% endif %}
+</section>
 {% endblock content %}
