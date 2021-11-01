@@ -637,6 +637,22 @@
     margin-bottom: 1.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    padding-bottom: .3rem;
     border-radius: 1rem;
+    box-shadow: 5px 5px 10px black;
+}
+
+.spell-sect-comp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: beige;
+    background-color: #858786;
+    padding-top: .8rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 1rem;
+    height: 10rem;
     box-shadow: 5px 5px 10px black;
 }
