@@ -2,9 +2,6 @@
     margin: 0;
 }
 
-.background {
-    background-color: #BFB59E;
-}
 
 .down{
     margin-top: 3rem;
@@ -97,6 +94,13 @@
 
 
 /* battle page */
+
+.background {
+    background-image: url(/static/site_pics/Fantasy-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
 
 #holders{
     display: flex;
