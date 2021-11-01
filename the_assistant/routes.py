@@ -103,6 +103,7 @@ def character(character_id):
     return render_template('character.html', title=character.character_name, character= character)
 
 @app.route('/battle/<int:character_id>/update', methods=['GET', 'POST'])
+@login_required
 def update_character(character_id):
     character = Character.query.get_or_404(character_id)
     if character.author != current_user:
@@ -138,6 +139,7 @@ def update_character(character_id):
     return render_template('makeplayer.html', title='Update Player', form=form, legend='Update Character')
 
 @app.route('/battle/<int:character_id>/delete', methods=['POST'])
+@login_required
 def delete_character(character_id):
     character = Character.query.get_or_404(character_id)
     if character.author != current_user:
@@ -202,6 +204,7 @@ def delete_monster(monster_id):
     return redirect(url_for('battle'))
 
 @app.route('/reference', methods=['GET', 'POST'])
+@login_required
 def reference():
     melee = ["greatsword", "longsword", "shortsword", "scimitar", "rapier", "dagger", "sickle",
             "handaxe","battleaxe", "greataxe", "light-hammer", "warhammer", "club", "greatclub",
@@ -306,6 +309,7 @@ def reference():
                            mwis=mwis, mchar=mchar, mchallenge=mchallenge)
 
 @app.route('/createshop', methods=['GET', 'POST'])
+@login_required
 def createshop():
     form= CreateShop()
     if form.validate_on_submit():
@@ -354,6 +358,7 @@ def delete_shop(shop_id):
     return redirect(url_for('reference'))
 
 @app.route('/spells', methods=['GET', 'POST'])
+@login_required
 def spells():
     spells =['acid-arrow', 'acid-splash', 'aid', 'alarm', 'alter-self', 'animal-friendship', 'animal-messenger', 'animal-shapes', 'animate-dead',
              'animate-objects', 'antilife-shell', 'antimagic-field', 'antipathy-sympathy', 'arcane-sword', 'bane','barkskin', 'blade-barrier',
