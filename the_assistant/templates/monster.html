@@ -1,28 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="player-cards">
+<section class="character-sheet-monster">
+  <div class="background-monster">
     <section class="char-name">
-        <h3>{{ monster.monster_name }}</h3>
+      <h3>{{ monster.monster_name }}</h3>
     </section>
     <section class="char-health">
-        <p>{{ monster.total_hp }}</p>
-        <p>{{ monster.current_hp }}</p>
-        <p>{{ monster.armor_class }}</p>
+      <p class="border-sides">Total HP: {{ monster.total_hp }}</p>
+      <p class="border-sides">Current HP: {{ monster.current_hp }}</p>
+      <p class="border-sides">Armor class: {{ monster.armor_class }}</p>
     </section>
     <section class="info">
-        <p>{{ monster.monster_description }}</p>
+      <p class="border-sides">Description: {{ monster.monster_description }}</p>
     </section>
     {% if monster.author == current_user %}
-        <div>
-            <a href="{{ url_for('update_monster', monster_id=monster.id) }}">Update</a>
-            <button type="button" data-toggle="modal" data-target="#deleteModal">Delete</button>
-        </div>
-    {% endif %}
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div>
+      <a href="{{ url_for('update_monster', monster_id=monster.id) }}"><button class="view-button marg-l-1">Update</button></a>
+      <button type="button" data-toggle="modal" data-target="#deleteModal" class="view-button marg-l-1">Delete</button>
+      {% endif %}
+      <a href="{{ url_for('battle') }}"><button class="view-button marg-l-1">Return</button></a>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -34,10 +36,11 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <form action="{{ url_for('delete_monster', monster_id=monster.id) }}" method="POST">
-              <input type="submit" value="Delete">
+            <input type="submit" value="Delete">
           </form>
         </div>
       </div>
     </div>
   </div>
+</section>
 {% endblock content %}

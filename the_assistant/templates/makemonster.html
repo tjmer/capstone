@@ -48,6 +48,21 @@
                             {% endif %}
                         </div>
                     </section>
+                    <section class="ac">
+                        <div class="form-group">
+                            {{ form.armor_class.label(class="from-control-label") }}
+                            {% if form.armor_class.errors %}
+                            {{ form.armor_class(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.armor_class.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.armor_class(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+                    </section>
                     <section class="bio">
                         <div class="form-group">
                             {{ form.monster_desc.label(class="from-control-label") }}
