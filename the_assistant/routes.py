@@ -221,12 +221,14 @@ def reference():
     wdice = ''
     wdtype = ''
     wcost = ''
+    wcostunit = ''
 
     rname = ''
     rcat = ''
     rdice = ''
     rdtype = ''
     rcost = ''
+    rcostunit = ''
 
     mname = ''
     msize = ''
@@ -256,8 +258,9 @@ def reference():
             wdice = data['damage']['damage_dice']
             wdtype = data['damage']['damage_type']['name']
             wcost = data['cost']['quantity']
+            wcostunit = data['cost']['unit']
             return render_template('references.html', title='References', shops=shops, range=ranged, melee=melee, monsters=monsters, wname=wname, wcat=wcat, wdice=wdice, wdtype= wdtype, wcost=wcost,
-                                   rname=rname, rcat=rcat, rdice=rdice, rdtype=rdtype, rcost=rcost, mname=mname,
+                                   wcostunit=wcostunit, rcostunit=rcostunit, rname=rname, rcat=rcat, rdice=rdice, rdtype=rdtype, rcost=rcost, mname=mname,
                                    msize=msize, mtype=mtype, mspeed=mspeed, mac=mac, mhp=mhp, mdice=mdice, mstr=mstr, mdex=mdex, mconst=mconst, mint=mint,
                                    mwis=mwis, mchar=mchar, mchallenge=mchallenge)
 
@@ -269,9 +272,10 @@ def reference():
             rdice = data['damage']['damage_dice']
             rdtype = data['damage']['damage_type']['name']
             rcost = data['cost']['quantity']
+            rcostunit = data['cost']['unit']
             return render_template('references.html', title='References', shops=shops, range=ranged, melee=melee, monsters=monsters, wname=wname, wcat=wcat, wdice=wdice, wdtype= wdtype, wcost=wcost,
                                    rname=rname, rcat=rcat, rdice=rdice, rdtype=rdtype, rcost=rcost, mname=mname,
-                                   msize=msize, mtype=mtype, mspeed=mspeed, mac=mac, mhp=mhp, mdice=mdice, mstr=mstr, mdex=mdex, mconst=mconst, mint=mint,
+                                   wcostunit=wcostunit, rcostunit=rcostunit, msize=msize, mtype=mtype, mspeed=mspeed, mac=mac, mhp=mhp, mdice=mdice, mstr=mstr, mdex=mdex, mconst=mconst, mint=mint,
                                    mwis=mwis, mchar=mchar, mchallenge=mchallenge)
 
         elif monsterw != None:
@@ -298,7 +302,7 @@ def reference():
 
     return render_template('references.html', title='References', shops=shops, range=ranged, melee=melee, monsters=monsters, wname=wname, wcat=wcat, wdice=wdice, wdtype= wdtype, wcost=wcost,
                            rname=rname, rcat=rcat, rdice=rdice, rdtype=rdtype, rcost=rcost, mname=mname,
-                           msize=msize, mtype=mtype, mspeed=mspeed, mac=mac, mhp=mhp, mdice=mdice, mstr=mstr, mdex=mdex, mconst=mconst, mint=mint,
+                           wcostunit=wcostunit, rcostunit=rcostunit, msize=msize, mtype=mtype, mspeed=mspeed, mac=mac, mhp=mhp, mdice=mdice, mstr=mstr, mdex=mdex, mconst=mconst, mint=mint,
                            mwis=mwis, mchar=mchar, mchallenge=mchallenge)
 
 @app.route('/createshop', methods=['GET', 'POST'])
