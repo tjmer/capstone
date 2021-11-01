@@ -141,6 +141,18 @@
     margin-top: 2rem;
 }
 
+.border-sides-account {
+    display: flex;
+    justify-content: center;
+    color: beige;
+    width: 15rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    background-color: #858786;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px black;
+}
+
 /* battle page */
 
 .player-cards{
