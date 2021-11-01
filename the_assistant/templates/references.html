@@ -59,7 +59,7 @@
             </div>
         </div>
     </section>
-    <section class="weapons">
+    <section class="other-info">
         <div class="border-sides-reference">
             <form id="form1" action="{{ url_for('reference') }}" method="POST" enctype="multipart/form-data">
                 <label for='melee'>Melee Weapons:</label>
@@ -71,7 +71,7 @@
                 <input class="view-button" type="submit" value="Submit">
             </form>
         </div>
-        <section>
+        <section class="other-info">
             <h2 class="title-ref">{{ wname }}</h2>
             <p class="border-sides">Catigory: {{ wcat }}</p>
             <p class="border-sides">Dice: {{ wdice }}</p>
@@ -90,7 +90,7 @@
                     <input class="view-button" type="submit" value="Submit">
                 </form>
             </div>
-            <section>
+            <section class="other-info">
                 <h2 class="title-ref">{{ rname }}</h2>
                 <p class="border-sides">Catigory: {{ rcat }}</p>
                 <p class="border-sides">Dice: {{ rdice }}</p>
@@ -99,6 +99,7 @@
             </section>
         </section>
         <section id="potion-stats">
+            <h5 class="title-line">Healing potion stats:</h5>
             <p>Healing 2d4+2</p>
             <p>Greater Healing 4d4+4</p>
             <p>Superior Healing 8d4+8</p>

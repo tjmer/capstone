@@ -523,6 +523,8 @@
     justify-content: center;
     align-items: center;
     padding-top: .5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     height: 3rem;
     background-color: #858786;
     color: beige;
@@ -536,10 +538,15 @@
     justify-content: center;
 }
 
+.title-line{
+    border-bottom: solid black;
+}
+
 #potion-stats{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     line-height: .5;
     color: beige;
     padding: 1rem;
@@ -555,6 +562,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: .3rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
     background-color: #858786;
