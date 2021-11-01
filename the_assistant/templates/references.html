@@ -1,94 +1,106 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="shop-list">
-    <div class="create">
-        <a href="{{ url_for('createshop') }}">Create Shop</a>
-    </div>
-    {% for shop in shops %}
-            <div class="player-cards">
-                <section class="char-name">
-                    <h3>{{ shop.shop_name }}</h3>
-                </section>
-                <section class="owner">
-                    <p>{{ shop.shop_owner }}</p>
-                </section>
-                <a href="{{ url_for('shop', shop_id=shop.id) }}">View</a>
-            </div>
+<section class="whole-page-references">
+    <section class="shop-list">
+        <div class="center">
+            <a class="center add-button" href="{{ url_for('createshop') }}">Create Shop</a>
+        </div>
+        {% for shop in shops %}
+        <div class="player-cards">
+            <section class="char-name marg-t-1">
+                <h3 class="char-health-font">{{ shop.shop_name }}</h3>
+            </section>
+            <section class="owner">
+                <p class="char-health-font">{{ shop.shop_owner }}</p>
+            </section>
+            <a href="{{ url_for('shop', shop_id=shop.id) }}"><button class="view-button marg-b-1">View</button></a>
+        </div>
         {% endfor %}
-</section>
-<section>
-    <div>
-        <h3>Monster Reference</h3>
-    </div>
-    <div>
-        <form id="form1" action="{{ url_for('reference') }}" method="POST" enctype="multipart/form-data">
-            <label for="monster">Monsters:</label>
-            <select id="monster-menu" name="monster">
-                {% for monst in monsters %}
-                <option value="{{ monst }}">{{ monst }}</option>
-                {% endfor %}
-            </select>
-            <input type="submit" value="Submit">
-        </form>
-    </div>
-    <div>
-        <h2>{{ mname }}</h2>
-        <p>Size: {{ msize }}</p>
-        <p>Type: {{ mtype }}</p>
-        <p>Speed: {{ mspeed }}</p>
-        <p>Armor Class: {{ mac }}</p>
-        <p>Hit Points: {{ mhp }}</p>
-        <p>Dice: {{ mdice }}</p>
-        <p>Challange: {{ mchallenge }}</p>
-        <div>
-            <div>
-                <p>Str: {{ mstr }}</p>
-                <p>Dex: {{ mdex }}</p>
-            </div>
-            <div>
-                <p>Const: {{ mconst }}</p>
-                <p>Int: {{ mint }}</p>
-            </div>
-            <div>
-                <p>Wis: {{ mwis }}</p>
-                <p>Char: {{ mchar }}</p>
+    </section>
+    <section class="monster-ref">
+        <div class="monster-name-section">
+            <h3 class="char-name">Monster Reference</h3>
+        </div>
+        <div class="border-sides-reference">
+            <form id="form1" action="{{ url_for('reference') }}" method="POST" enctype="multipart/form-data">
+                <label for="monster">Monsters:</label>
+                <select id="monster-menu" name="monster">
+                    {% for monst in monsters %}
+                    <option value="{{ monst }}">{{ monst }}</option>
+                    {% endfor %}
+                </select>
+                <input class="view-button" type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="center-ref">
+            <h2 class="title-ref">{{ mname }}</h2>
+            <p class="border-sides">Size: {{ msize }}</p>
+            <p class="border-sides">Type: {{ mtype }}</p>
+            <p class="border-sides">Speed: {{ mspeed }}</p>
+            <p class="border-sides">Armor Class: {{ mac }}</p>
+            <p class="border-sides">Hit Points: {{ mhp }}</p>
+            <p class="border-sides">Dice: {{ mdice }}</p>
+            <p class="border-sides">Challange: {{ mchallenge }}</p>
+            <div class="reference-center">
+                <div class="twos">
+                    <p class="border-sides">Str: {{ mstr }}</p>
+                    <p class="border-sides">Dex: {{ mdex }}</p>
+                </div>
+                <div class="twos">
+                    <p class="border-sides">Const: {{ mconst }}</p>
+                    <p class="border-sides">Int: {{ mint }}</p>
+                </div>
+                <div class="twos">
+                    <p class="border-sides">Wis: {{ mwis }}</p>
+                    <p class="border-sides">Char: {{ mchar }}</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-<section class="weapons">
-    <form id="form1" action="{{ url_for('reference') }}" method="POST" enctype="multipart/form-data">
-        <label for='melee'>Melee Weapons:</label>
-        <select id="melee-select" name="melee">
-            {% for melees in melee %}
-            <option value='{{melees}}'>{{melees}}</option>
-            {% endfor %}
-        </select>
-        <input type="submit" value="Submit">
-    </form>
-    <section>
-        <h2>{{ wname }}</h2>
-        <p>Catigory: {{ wcat }}</p>
-        <p>Dice: {{ wdice }}</p>
-        <p>Type: {{ wdtype }}</p>
-        <p>Cost: {{ wcost }} gp</p>
     </section>
-    <section id="ranged">
-        <form id="form1" action="{{ url_for('reference') }}" method="POST" enctype="multipart/form-data">
-            <label for="ranged">Ranged Weapons:</label>
-            <select id="ranged-select" name="ranged">
-                {% for ranged in range %}
-                <option value="{{ ranged }}">{{ ranged }}</option>
-                {% endfor %}
-            </select>
-            <input type="submit" value="Submit">
-        </form>
+    <section class="weapons">
+        <div class="border-sides-reference">
+            <form id="form1" action="{{ url_for('reference') }}" method="POST" enctype="multipart/form-data">
+                <label for='melee'>Melee Weapons:</label>
+                <select id="melee-select" name="melee">
+                    {% for melees in melee %}
+                    <option value='{{melees}}'>{{melees}}</option>
+                    {% endfor %}
+                </select>
+                <input class="view-button" type="submit" value="Submit">
+            </form>
+        </div>
         <section>
-            <h2>{{ rname }}</h2>
-        <p>Catigory: {{ rcat }}</p>
-        <p>Dice: {{ rdice }}</p>
-        <p>Type: {{ rdtype }}</p>
-        <p>Cost: {{ rcost }} gp</p>
+            <h2 class="title-ref">{{ wname }}</h2>
+            <p class="border-sides">Catigory: {{ wcat }}</p>
+            <p class="border-sides">Dice: {{ wdice }}</p>
+            <p class="border-sides">Type: {{ wdtype }}</p>
+            <p class="border-sides">Cost: {{ wcost }} gp</p>
+        </section>
+        <section id="ranged">
+            <div class="border-sides-reference">
+                <form id="form1" action="{{ url_for('reference') }}" method="POST" enctype="multipart/form-data">
+                    <label for="ranged">Ranged Weapons:</label>
+                    <select id="ranged-select" name="ranged">
+                        {% for ranged in range %}
+                        <option value="{{ ranged }}">{{ ranged }}</option>
+                        {% endfor %}
+                    </select>
+                    <input class="view-button" type="submit" value="Submit">
+                </form>
+            </div>
+            <section>
+                <h2 class="title-ref">{{ rname }}</h2>
+                <p class="border-sides">Catigory: {{ rcat }}</p>
+                <p class="border-sides">Dice: {{ rdice }}</p>
+                <p class="border-sides">Type: {{ rdtype }}</p>
+                <p class="border-sides">Cost: {{ rcost }} gp</p>
+            </section>
+        </section>
+        <section id="potion-stats">
+            <p>Healing 2d4+2</p>
+            <p>Greater Healing 4d4+4</p>
+            <p>Superior Healing 8d4+8</p>
+            <p>Supreme Healing 10d4+20</p>
         </section>
     </section>
 </section>

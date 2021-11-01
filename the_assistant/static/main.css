@@ -14,6 +14,10 @@
     margin-top: 1rem;
 }
 
+.marg-t-1{
+    margin-top: 1rem;
+}
+
 .marg-b-1{
     margin-bottom: 1rem;
 }
@@ -350,4 +354,94 @@
     justify-content: center;
     background-image: url(/static/site_pics/party_pic.webp);
     background-size: contain;
+}
+
+/* references page */
+
+.whole-page-references{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-image: url(/static/site_pics/Fantasy-background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.monster-ref{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.reference-center{
+    display: flex;
+    flex-direction: column;
+}
+
+.twos{
+    display: flex;
+}
+
+.monster-name-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 4rem;
+    background-color: #858786;
+    color: beige;
+    font-family: sans-serif;
+    height: 3rem;
+    width: 18rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    padding-top: .5rem;
+    box-shadow: 3px 3px 8px black;
+    text-shadow: 0px 0px 8px black;
+}
+
+.border-sides-reference{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: .5rem;
+    height: 3rem;
+    background-color: #858786;
+    color: beige;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px black;
+}
+
+.center-ref{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#potion-stats{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: .5;
+    color: beige;
+    padding: 1rem;
+    width: 14rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    background-color: #858786;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px black;
+}
+
+.title-ref{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #858786;
+    color: beige;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px black;
 }
