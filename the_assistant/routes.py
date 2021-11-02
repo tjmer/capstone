@@ -158,7 +158,7 @@ def createmonster():
                           armor_class=form.armor_class.data, monster_description=form.monster_desc.data, author=current_user)
         db.session.add(monster)
         db.session.commit()
-        flash("Created monster!" 'success')
+        flash("Created monster!", 'success')
         return redirect(url_for('battle'))
     return render_template('makemonster.html', title='Create Monster', form=form, legend= 'Create Monster')
 
