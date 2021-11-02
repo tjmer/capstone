@@ -45,6 +45,7 @@
     justify-content: center;
     background-color: #858786;
     background-size: cover;
+    height: 100vh;
 }
 
 /* Header css */
@@ -140,27 +141,6 @@
     text-shadow: 0px 0px 8px black;
 }
 
-/* battle page */
-
-.background {
-    background-image: url(/static/site_pics/Fantasy-background.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-}
-
-#holders{
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.cent{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 /* account page */
 
 .size {
@@ -201,6 +181,25 @@
 }
 
 /* battle page */
+
+.background {
+    background-image: url(/static/site_pics/Fantasy-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+#holders{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .player-cards{
     display: flex;
@@ -444,7 +443,10 @@
     margin-bottom: 4rem;
     border-radius: 1rem;
     width: 50rem;
+    height: 30rem;
 }
+
+
 
 /* makemonster */
 
