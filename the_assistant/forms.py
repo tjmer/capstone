@@ -52,7 +52,7 @@ class UpdateAccountForm(FlaskForm):
 
 class CreateCharacter(FlaskForm):
     character_name = StringField('Name', validators=[DataRequired()])
-    total_health = IntegerField('Health', validators=[DataRequired()])
+    total_health = IntegerField('Total Health', validators=[DataRequired()])
     current_health = IntegerField('Current Health', validators=[DataRequired()])
     ac = IntegerField('Armor-Class', validators=[DataRequired()])
     strength = IntegerField('Strength', validators=[DataRequired()])
