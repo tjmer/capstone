@@ -316,7 +316,7 @@ def createshop():
         shop = Shop(shop_name=form.shop_name.data, shop_owner=form.shop_owner.data, inventory=form.inventory.data, author=current_user)
         db.session.add(shop)
         db.session.commit()
-        flash('Shop made!', 'Success')
+        flash('Shop made!', 'success')
         return redirect(url_for('reference'))
     return render_template('createshop.html', title='Create Shop', legend="Create Shop", form=form)
 
