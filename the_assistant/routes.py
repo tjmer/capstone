@@ -92,7 +92,7 @@ def createplayer():
                               wisdom=form.wisdom.data, charisma=form.charisma.data, char_bio=form.bio.data, author=current_user)
         db.session.add(character)
         db.session.commit()
-        flash("Created character!" 'success')
+        flash("Created character!", 'success')
         return redirect(url_for('battle'))
     return render_template('makeplayer.html', title='Create Player', form=form, legend='Create Character')
 
