@@ -360,10 +360,62 @@ def delete_shop(shop_id):
 @app.route('/spells', methods=['GET', 'POST'])
 @login_required
 def spells():
-    spells =['acid-arrow', 'acid-splash', 'aid', 'alarm', 'alter-self', 'animal-friendship', 'animal-messenger', 'animal-shapes', 'animate-dead',
-             'animate-objects', 'antilife-shell', 'antimagic-field', 'antipathy-sympathy', 'arcane-sword', 'bane','barkskin', 'blade-barrier',
-             'bless', 'blight', 'blink', 'blur', 'burning-hands', 'call-lightning', 'calm-emotions', 'chain-lightning', 'charm-person', 'chill-touch',
-             'circle-of-death', 'clone', 'color-spray', 'command', 'cone-of-cold', 'conjure-animals', 'counterspell', 'cure-wounds']
+    spellcant = ['acid-splash', 'chill-touch', 'dancing-lights', 'druidcraft', 'eldritch-blast', 'fire-bolt',
+                 'guidance', 'light', 'mage-hand', 'mending', 'message', 'minor-illusion', 'poison-spray', 'prestidigitation',
+                 'produce-flame', 'ray-of-frost', 'resistance', 'sacred-flame', 'shillelagh', 'shocking-grasp',
+                 'thaumaturgy', 'true-strike', 'vicious-mockery']
+    
+    spell1 = ['alarm', 'animal-friendship', 'bane', 'bless', 'burning-hands', 'charm-person', 'color-spray',
+              'command', 'comprehend-languages', 'create-or-destroy-water', 'cure-wounds', 'detect-evil-and-good',
+              'detect-magic', 'detect-poison-and-disease', 'disguise-self', 'divine-favor', 'entangle', 'expeditious-retreat',
+              'faerie-fire', 'false-life', 'feather-fall', 'find-familiar', 'floating-disk', 'fog-cloud', 'goodberry',
+              'grease', 'guiding-bold', 'healing-word', 'hellish-rebuke', 'heroism', 'hideous-laughter', "hunters-mark",
+              'identify', 'illusory-script', 'inflict-wounds', 'jump', 'longstider', 'mage-armor', 'magic-missile', 'protection-from-evil-and-good',
+              'purify-food-and-drink', 'sanctuary', 'shield', 'shield-of-faith', 'silent-image', 'sleep', 'speak-with-animals',
+              'thunderwave', 'unseen-servant']
+    
+    spell2 = ['acid-arrow', 'aid', 'alter-self', 'animal-messenger', 'arcane-lock', 'arcanists-magic-aura', 'augury', 'barkskin',
+              'blindness-deafness', 'blur', 'branding-smite', 'calm-emotions', 'continual-flame', 'darkness', 'darkvision', 'detect-thoughts',
+              'enhance-ability', 'enlarge-reduce', 'enthrall', 'find-steed', 'find-traps', 'flame-blade', 'flaming-sphere', 'gentle-repose',
+              'gust-of-wind', 'heat-metal', 'hold-person', 'invisibility', 'knock', 'lesser-restoration', 'levitate', 'locate-animals-or-plants',
+              'locate-object', 'magic-mouth', 'magic-weapon', 'mirror-image', 'misty-step', 'moonbeam', 'pass-without-trace',
+              'prayer-of-healing', 'protection-from-poison', 'ray-of-enfeeblement', 'rope-trick', 'scorching-ray', 'see-invisiblity',
+              'shatter', 'silence', 'spider-climb', 'spike-growth', 'spiritual-weapon', 'suggestion', 'warding-bond',
+              'web', 'zone-of-truth']
+    
+    spell3 = ['animate-dead', 'beacon-of-hope', 'bestow-curse', 'blink', 'call-lightning', 'clairvoyance', 'conjure-animals', 'counterspell',
+              'create-food-and-water', 'daylight', 'dispel-magic', 'fear', 'fireball', 'fly', 'gaseous-form', 'glyph-of-warding', 'haste',
+              'hypnotic-pattern', 'lightning-bolt', 'magic-circle', 'major-image', 'mass-healing-word', 'meld-into-stone', 'nondetection',
+              'phantom-steed', 'plant-growth', 'protection-from-energy', 'remove-curse', 'revivify', 'sending', 'sleet-storm', 'slow',
+              'speak-with-dead', 'spirit-guardians', 'stinking-cloud', 'tiny-hut', 'tongues', 'vampiric-touch', 'water-breathing',
+              'water-walk', 'wind-wall']
+
+    spell4 = ['arcane-eye', 'banishment', 'black-tentacles', 'blight', 'compulsion', 'confusion', 'conjure-minor-elementals', 'conjure-woodland-beings',
+              'control-water', 'death-ward', 'dimension-door', 'divination', 'dominate-beast', 'fabricate', 'faithful-hound', 'fire-shield',
+              'freedom-of-movement', 'giant-insect', 'greater-invisibility', 'guardian-of-faith', 'hallucinatory-terrain', 'ice-storm',
+              'locate-creature', 'phantasmal-killer', 'polymorph', 'private-sanctum', 'resilient-sphere', 'secret-chest', 'stone-shape',
+              'stoneskin', 'wall-of-fire']
+    
+    spell5 = ['animate-objects', 'antilife-shell', 'arcane-hand', 'awaken', 'cloudkill', 'commune', 'commune-with-nature', 'cone-of-cold',
+              'conjure-elemental', 'contact-other-plane', 'contagion', 'creation', 'dispel-evil-and-good', 'dominate-person', 'dream',
+              'flame-strike', 'geas', 'greater-restoration', 'hallow', 'hold-monster', 'insect-plague', 'legend-lore', 'mass-cure-wounds',
+              'mislead', 'modify-memory', 'passwall', 'planar-binding', 'raise-dead', 'reincarnate', 'scrying', 'seeming', 'telekinesis',
+              'telepathic-bond', 'teleportation-circle', 'tree-stride', 'wall-of-force', 'wall-of-stone']
+
+    spell6 = ['blade-barrier', 'chain-lightning', 'circle-of-death', 'conjure-fey', 'contingency', 'create-undead', 'disintegrate', 'eyebite',
+              'find-the-path', 'flesh-to-stone', 'forbiddance', 'freezing-sphere', 'globe-of-Invulnerability', 'guards-and-wards', 'harm', 'heal',
+              'heroes-feast', 'instant-summons', 'irresistible-dance', 'magic-jar', 'mass-suggestion', 'move-earth', 'planar-ally', 'programmed-illusion',
+              'sunbeam', 'transport-via-plants', 'true-seeing', 'wall-of-ice', 'wall-of-thorns', 'wind-walk', 'word-of-recall']
+    
+    spell7 = ['arcane-sword', 'conjure-celestial', 'delayed-blast-fireball', 'divine-word', 'etherealness', 'finger-of-death',
+              'fire-storm', 'forcecage', 'magnificent-mansion', 'mirge-arcane', 'plane-shift', 'prismatic-spray', 'project-image', 'regenerate',
+              'resurrection', 'reverse-gravity', 'sequester', 'simulacrum', 'symbol', 'teleport']
+
+    spell8 = ['animal-shapes', 'antimagic-field', 'antipathy-sympathy', 'clone', 'control-weather', 'demiplane', 'dominate-monster', 'earthquake',
+              'feeblemind', 'glibness', 'holy-aura', 'incendiary-cloud', 'maze', 'mind-blank', 'power-word-stun', 'sunburst']
+
+    spell9 = ['astral-projection', 'foresight', 'gate', 'imprisonment', 'mass-heal', 'meteor-swarm', 'power-word-kill', 'prismatic-wall', 'shapechange',
+              'storm-of-vengeance', 'time-stop', 'true-polymorph', 'true-resurrection', 'weird', 'wish']
 
     sname = ''
     sdesc = ''
@@ -390,10 +442,20 @@ def spells():
     sschool = ''
 
     if request.method == 'POST':
-        spellw = request.form.get('spell', None)
+        spell0 = request.form.get('cantrip-spell', None)
+        lvl1spell = request.form.get('lvl1-spell', None)
+        lvl2spell = request.form.get('lvl2-spell', None)
+        lvl3spell = request.form.get('lvl3-spell', None)
+        lvl4spell = request.form.get('lvl4-spell', None)
+        lvl5spell = request.form.get('lvl5-spell', None)
+        lvl6spell = request.form.get('lvl6-spell', None)
+        lvl7spell = request.form.get('lvl7-spell', None)
+        lvl8spell = request.form.get('lvl8-spell', None)
+        lvl9spell = request.form.get('lvl9-spell', None)
 
-        if spellw != None:
-            req = requests.get(f'https://www.dnd5eapi.co/api/spells/{spellw}')
+        if (spell0 != None or lvl1spell != None or lvl2spell != None or lvl3spell != None or lvl4spell != None or lvl5spell != None or 
+            lvl6spell != None or lvl7spell != None or lvl8spell != None or lvl9spell != None):
+            req = requests.get(f'https://www.dnd5eapi.co/api/spells/{spell0 or lvl1spell or lvl2spell or lvl3spell or lvl4spell or lvl5spell or lvl6spell or lvl7spell or lvl8spell or lvl9spell}')
             data = json.loads(req.content)
 
             sname = data['name']
@@ -458,14 +520,16 @@ def spells():
             except:
                 sdal_9 = ''
             sschool = data['school']['name']
-            return render_template('spells.html', title='Spells', spells=spells,
+            return render_template('spells.html', title='Spells', spellcant=spellcant, spell1=spell1, spell2=spell2,
+                           spell3=spell3, spell4=spell4, spell5=spell5, spell6=spell6, spell7=spell7, spell8=spell8, spell9=spell9,
                            sname=sname, sdesc=sdesc, shigher_level=shigher_level, srange=srange, scomponents=scomponents,
                            smaterial=smaterial, sritual=sritual, sduration=sduration, sconcentration=sconcentration,
                            scasting_time=scasting_time, slevel=slevel, sattack_type=sattack_type, sdamage_type=sdamage_type,
                            sdal_1=sdal_1, sdal_2=sdal_2, sdal_3=sdal_3, sdal_4=sdal_4, sdal_5=sdal_5, sdal_6=sdal_6,
                            sdal_7=sdal_7, sdal_8=sdal_8, sdal_9=sdal_9, sschool=sschool)
 
-    return render_template('spells.html', title='Spells', spells=spells,
+    return render_template('spells.html', title='Spells', spellcant=spellcant, spell1=spell1, spell2=spell2,
+                           spell3=spell3, spell4=spell4, spell5=spell5, spell6=spell6, spell7=spell7, spell8=spell8, spell9=spell9,
                            sname=sname, sdesc=sdesc, shigher_level=shigher_level, srange=srange, scomponents=scomponents,
                            smaterial=smaterial, sritual=sritual, sduration=sduration, sconcentration=sconcentration,
                            scasting_time=scasting_time, slevel=slevel, sattack_type=sattack_type, sdamage_type=sdamage_type,

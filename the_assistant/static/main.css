@@ -32,6 +32,11 @@
     justify-content: center;
 }
 
+.flex-order{
+    display: flex;
+    flex-direction: row;
+}
+
 .height-4{
     height: 4rem;
 }
@@ -46,6 +51,11 @@
     background-color: #858786;
     background-size: cover;
     height: 100vh;
+}
+
+.border-top{
+    border-top: 3px solid black;
+    margin-top: 1rem;
 }
 
 /* Header css */
@@ -611,9 +621,22 @@
     background-repeat: no-repeat;
 }
 
+.border-sides-spells{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: .5rem;
+    background-color: #858786;
+    color: beige;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px black;
+}
+
 #spell-name{
     display: flex;
     justify-content: center;
+    margin-top: 1rem;
 }
 
 #spell-item-section{

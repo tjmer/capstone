@@ -1,16 +1,125 @@
 {% extends 'base.html' %}
 {% block content %}
 <section class="whole-page-spell">
-    <section class="border-sides-reference">
-        <form id="form1" action="{{ url_for('spells') }}" method="POST" enctype="multipart/form-data">
-            <label for='spell'>Spells:</label>
-            <select name="spell">
-                {% for spell in spells %}
-                <option value="{{ spell }}">{{ spell }}</option>
-                {% endfor %}
-            </select>
-            <input class="view-button" type="submit" value="Submit">
-        </form>
+    <section class="border-sides-spells">
+        <section class="flex-order">
+            <section>
+                <form id="form1" action="{{ url_for('spells') }}" method="POST" enctype="multipart/form-data">
+                    <label for='cantrip-spell'>Cantrip:</label>
+                    <select name="cantrip-spell">
+                        {% for spell in spellcant %}
+                        <option value="{{ spell }}">{{ spell }}</option>
+                        {% endfor %}
+                    </select>
+                    <input class="view-button" type="submit" value="Submit">
+                </form>
+            </section>
+            <section class="marg-l-1">
+                <form id="form2" action="{{ url_for('spells') }}" method="POST" enctype="multipart/form-data">
+                    <label for='lvl1-spell'>Lvl 1:</label>
+                    <select name="lvl1-spell">
+                        {% for spell in spell1 %}
+                        <option value="{{ spell }}">{{ spell }}</option>
+                        {% endfor %}
+                    </select>
+                    <input class="view-button" type="submit" value="Submit">
+                </form>
+            </section>
+            <section class="marg-l-1">
+                <form id="form3" action="{{ url_for('spells') }}" method="POST" enctype="multipart/form-data">
+                    <label for='lvl2-spell'>Lvl 2:</label>
+                    <select name="lvl2-spell">
+                        {% for spell in spell2 %}
+                        <option value="{{ spell }}">{{ spell }}</option>
+                        {% endfor %}
+                    </select>
+                    <input class="view-button" type="submit" value="Submit">
+                </form>
+            </section>
+        </section>
+        <section class="flex-order">
+            <section class="marg-l-1">
+                <form id="form4" action="{{ url_for('spells') }}" method="POST" enctype="multipart/form-data">
+                    <label for='lvl3-spell'>Lvl 3:</label>
+                    <select name="lvl3-spell">
+                        {% for spell in spell3 %}
+                        <option value="{{ spell }}">{{ spell }}</option>
+                        {% endfor %}
+                    </select>
+                    <input class="view-button" type="submit" value="Submit">
+                </form>
+            </section>
+            <section class="marg-l-1">
+                <form id="form5" action="{{ url_for('spells') }}" method="POST" enctype="multipart/form-data">
+                    <label for='lvl4-spell'>Lvl 4:</label>
+                    <select name="lvl4-spell">
+                        {% for spell in spell4 %}
+                        <option value="{{ spell }}">{{ spell }}</option>
+                        {% endfor %}
+                    </select>
+                    <input class="view-button" type="submit" value="Submit">
+                </form>
+            </section>
+            <section class="marg-l-1">
+                <form id="form6" action="{{ url_for('spells') }}" method="POST" enctype="multipart/form-data">
+                    <label for='lvl5-spell'>Lvl 5:</label>
+                    <select name="lvl5-spell">
+                        {% for spell in spell5 %}
+                        <option value="{{ spell }}">{{ spell }}</option>
+                        {% endfor %}
+                    </select>
+                    <input class="view-button" type="submit" value="Submit">
+                </form>
+            </section>
+        </section>
+        <section class="flex-order">
+            <section class="marg-l-1">
+                <form id="form7" action="{{ url_for('spells') }}" method="POST" enctype="multipart/form-data">
+                    <label for='lvl6-spell'>Lvl 6:</label>
+                    <select name="lvl6-spell">
+                        {% for spell in spell6 %}
+                        <option value="{{ spell }}">{{ spell }}</option>
+                        {% endfor %}
+                    </select>
+                    <input class="view-button" type="submit" value="Submit">
+                </form>
+            </section>
+            <section class="marg-l-1">
+                <form id="form8" action="{{ url_for('spells') }}" method="POST" enctype="multipart/form-data">
+                    <label for='lvl7-spell'>Lvl 7:</label>
+                    <select name="lvl7-spell">
+                        {% for spell in spell7 %}
+                        <option value="{{ spell }}">{{ spell }}</option>
+                        {% endfor %}
+                    </select>
+                    <input class="view-button" type="submit" value="Submit">
+                </form>
+            </section>
+            <section class="marg-l-1">
+                <form id="form9" action="{{ url_for('spells') }}" method="POST" enctype="multipart/form-data">
+                    <label for='lvl8-spell'>Lvl 8:</label>
+                    <select name="lvl8-spell">
+                        {% for spell in spell8 %}
+                        <option value="{{ spell }}">{{ spell }}</option>
+                        {% endfor %}
+                    </select>
+                    <input class="view-button" type="submit" value="Submit">
+                </form>
+            </section>
+        </section>
+        <section>
+            <section class="marg-l-1">
+                <form id="form10" action="{{ url_for('spells') }}" method="POST" enctype="multipart/form-data">
+                    <label for='lvl9-spell'>Lvl 9:</label>
+                    <select name="lvl9-spell">
+                        {% for spell in spell9 %}
+                        <option value="{{ spell }}">{{ spell }}</option>
+                        {% endfor %}
+                    </select>
+                    <input class="view-button" type="submit" value="Submit">
+                </form>
+            </section>
+        </section>
     </section>
     <section class="spell-info">
         <section id="spell-name">
